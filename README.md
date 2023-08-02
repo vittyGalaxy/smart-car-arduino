@@ -1,2 +1,2 @@
-# smart-car-arduino
+# Project `aserial`
 My first Arduino project
