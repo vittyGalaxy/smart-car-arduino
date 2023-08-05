@@ -1,20 +1,23 @@
 /********************************************************************************/
 /**
 * @file: demo_motors.cpp
-* @description: Demo for motors
+* @description: Demo for us and motors
 * @author: Vittorio
 * @mail:
 */
 /********************************************************************************/
 
 #include "MotorDriver.h"
+#include "UltrasonicSensor.h"
+
 
 #ifndef DEMO_MOTORS_H
 #define DEMO_MOTORS_H
 
+/*****************************************************************************/
 extern MotorDriver md;
 
-void demo_motors(){
+void demo_motors() {
     md.init();
     md.on();
 
@@ -34,6 +37,16 @@ void demo_motors(){
     delay(10000);
     md.stop(Motor::LEFT);
     md.stop(Motor::RIGHT);
+}
+
+/*****************************************************************************/
+
+extern UltrasonicSensor us;
+
+void demo_ultrasonicSensor() {
+    us.init();
+    int distanceCm = us.computeDistance();
+    Serial.println(distanceCm);
 }
 
 #endif // DEMO_MOTORS_H
