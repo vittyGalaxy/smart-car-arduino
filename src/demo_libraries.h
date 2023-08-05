@@ -7,10 +7,6 @@
 */
 /********************************************************************************/
 
-#include "MotorDriver.h"
-#include "UltrasonicSensor.h"
-
-
 #ifndef DEMO_MOTORS_H
 #define DEMO_MOTORS_H
 
@@ -40,7 +36,6 @@ void demo_motors() {
 }
 
 /*****************************************************************************/
-
 extern UltrasonicSensor us;
 
 void demo_ultrasonicSensor() {
