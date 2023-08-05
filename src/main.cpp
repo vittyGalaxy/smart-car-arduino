@@ -2,14 +2,15 @@
 #include <Servo.h>
 #include "UltrasonicSensor.h"
 #include "MotorDriver.h"
+#include "demo_motors.h"
 
 // Servo
 Servo myServo;
 const int PIN_SERVO = 9;
 
 // US
-const int PIN_ECHO = 10;
-const int PIN_TRIG = 11;
+const int PIN_ECHO = 12;
+const int PIN_TRIG = 13;
 
 int distanceCm;
 UltrasonicSensor us(PIN_TRIG, PIN_ECHO);
@@ -29,12 +30,14 @@ void setup()
 
     Serial.begin(9600);
     Serial.println("Hello");
-    md.init();
-    us.init();
+//    us.init();
+
+    demo_motors();
 }
 
 __attribute__((unused)) void loop()
 {
+    // US
     distanceCm = us.computeDistance();
     Serial.println(distanceCm);
     delay(100);
