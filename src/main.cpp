@@ -1,0 +1,41 @@
+#include <Arduino.h>
+#include <Servo.h>
+#include "UltrasonicSensor.h"
+#include "MotorDriver.h"
+
+// Servo
+Servo myServo;
+const int PIN_SERVO = 9;
+
+// US
+const int PIN_ECHO = 10;
+const int PIN_TRIG = 11;
+
+int distanceCm;
+UltrasonicSensor us(PIN_TRIG, PIN_ECHO);
+
+// Motors
+const int PIN_PWM_RIGHT = 5;
+const int PIN_PWM_LEFT = 6;
+const int PIN_IN_RIGHT = 7;
+const int PIN_IN_LEFT = 8;
+const int PIN_STBY = 3;
+MotorDriver md(PIN_IN_RIGHT, PIN_IN_LEFT, PIN_PWM_RIGHT, PIN_PWM_LEFT, PIN_STBY);
+
+void setup()
+{
+    myServo.attach(PIN_SERVO);
+    myServo.write(0);
+
+    Serial.begin(9600);
+    Serial.println("Hello");
+    md.init();
+    us.init();
+}
+
+__attribute__((unused)) void loop()
+{
+    distanceCm = us.computeDistance();
+    Serial.println(distanceCm);
+    delay(100);
+}
