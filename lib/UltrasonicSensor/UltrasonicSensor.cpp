@@ -33,6 +33,8 @@ int UltrasonicSensor::getEchoPin() const {
 
 /********************************************************************************/
 int UltrasonicSensor::computeDistance() const {
+    if (!bInit) { return static_cast<int>(maxDistance); }
+
     delay(50);
     digitalWrite(static_cast<uint8_t>(this->trigPin), LOW);
     delayMicroseconds(2);

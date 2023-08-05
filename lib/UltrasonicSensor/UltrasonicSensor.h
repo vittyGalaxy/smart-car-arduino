@@ -34,6 +34,7 @@ public:
     inline UltrasonicSensor &init() {
         pinMode(static_cast<uint8_t>(echoPin), INPUT);
         pinMode(static_cast<uint8_t>(trigPin), OUTPUT);
+        bInit = true;
         return *this;
     }
 
@@ -71,4 +72,5 @@ private:
     int trigPin;
     int echoPin;
     double maxDistance;  //cm
+    bool bInit = false;
 };
