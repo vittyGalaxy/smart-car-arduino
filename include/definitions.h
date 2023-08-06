@@ -1,7 +1,11 @@
-//
-// Created by angelo on 05/08/23.
-//
-
+/********************************************************************************/
+/**
+* @file: definitions.h
+* @description: In this file there are all pin connections
+* @author: AngeloDamante
+* @author: Vittorio Tiozzo
+*/
+/********************************************************************************/
 #ifndef DEFINITIONS_H
 #define DEFINITIONS_H
 
