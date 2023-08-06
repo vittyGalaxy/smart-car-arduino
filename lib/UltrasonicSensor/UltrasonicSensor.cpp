@@ -1,6 +1,6 @@
 /********************************************************************************/
 /**
-* @file: UltrasonicSensor.h
+* @file: UltrasonicSensor.cpp
 * @description: UltrasonicSensor declaration
 * @author: AngeloDamante
 * @mail: angelo.damante16@gmail.com
