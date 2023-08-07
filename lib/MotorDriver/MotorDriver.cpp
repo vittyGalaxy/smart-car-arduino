@@ -30,6 +30,7 @@ MotorDriver &MotorDriver::on() {
 MotorDriver &MotorDriver::off() {
     if (!this->bOn) { return *this; }
     digitalWrite(static_cast<uint8_t>(stbyPin), LOW);
+    this->bOn = false;
     return *this;
 }
 
