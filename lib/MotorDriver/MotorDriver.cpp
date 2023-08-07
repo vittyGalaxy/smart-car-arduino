@@ -22,17 +22,20 @@ MotorDriver &MotorDriver::init() {
 /********************************************************************************/
 MotorDriver &MotorDriver::on() {
     digitalWrite(static_cast<uint8_t>(stbyPin), HIGH);
+    this->bOn = true;
     return *this;
 }
 
 /********************************************************************************/
 MotorDriver &MotorDriver::off() {
+    if (!this->bOn) { return *this; }
     digitalWrite(static_cast<uint8_t>(stbyPin), LOW);
     return *this;
 }
 
 /********************************************************************************/
 MotorDriver &MotorDriver::go(Motor oMotor, uint8_t speed) {
+    if (!this->bOn) { return *this; }
     switch (oMotor) {
         case RIGHT:
             digitalWrite(static_cast<uint8_t>(in1Pin), HIGH);
@@ -47,6 +50,7 @@ MotorDriver &MotorDriver::go(Motor oMotor, uint8_t speed) {
 
 /********************************************************************************/
 MotorDriver &MotorDriver::back(Motor oMotor, uint8_t speed) {
+    if (!this->bOn) { return *this; }
     switch (oMotor) {
         case RIGHT:
             digitalWrite(static_cast<uint8_t>(in1Pin), LOW);
@@ -61,6 +65,7 @@ MotorDriver &MotorDriver::back(Motor oMotor, uint8_t speed) {
 
 /********************************************************************************/
 MotorDriver &MotorDriver::stop(Motor oMotor) {
+    if (!this->bOn) { return *this; }
     switch (oMotor) {
         case RIGHT:
             digitalWrite(static_cast<uint8_t>(in1Pin), LOW);

@@ -86,6 +86,7 @@ private:
     int pwmAPin;
     int pwmBPin;
     int stbyPin;
+    bool bOn = false;
 };
 
 
