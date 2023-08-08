@@ -18,6 +18,7 @@ RGBLed &RGBLed::on() {
 
 /********************************************************************************/
 RGBLed &RGBLed::off() {
+    if (!this->bEnable) { return *this; }
     this->bEnable = false;
     FastLED.clear(true);
     return *this;
