@@ -7,40 +7,40 @@
 */
 /********************************************************************************/
 
-#include "moves.h"
+#include "MotionControl.h"
 
-void MOVES::forward(int speed) {
+void MotionControl::forward(int speed) {
     //TODO
 }
 
-void MOVES::backward(int speed) {
+void MotionControl::backward(int speed) {
     //TODO
 }
 
-void MOVES::left(int speed) {
+void MotionControl::left(int speed) {
     //TODO
 }
 
-void MOVES::right(int speed) {
+void MotionControl::right(int speed) {
     //TODO
 }
 
-void MOVES::leftForward(int speed) {
+void MotionControl::leftForward(int speed) {
     //TODO
 }
 
-void MOVES::leftBackward(int speed) {
+void MotionControl::leftBackward(int speed) {
     //TODO
 }
 
-void MOVES::rightForward(int speed) {
+void MotionControl::rightForward(int speed) {
     //TODO
 }
 
-void MOVES::rightBackward(int speed) {
+void MotionControl::rightBackward(int speed) {
     //TODO
 }
 
-void MOVES::stop() {
+void MotionControl::stop() {
     //TODO
 }

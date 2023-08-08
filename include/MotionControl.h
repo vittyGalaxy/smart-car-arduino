@@ -7,10 +7,27 @@
 */
 /********************************************************************************/
 
-#ifndef SMART_CAR_ARDUINO_MOVES_H
-#define SMART_CAR_ARDUINO_MOVES_H
+#ifndef SMART_CAR_ARDUINO_MOTIONCONTROL_H
+#define SMART_CAR_ARDUINO_MOTIONCONTROL_H
 
-namespace MOVES {
+#include "MotorDriver.h"
+#include "definitions.h"
+
+/********************************************************************************/
+class MotionControl {
+public:
+    inline explicit MotionControl(
+            int in1Pin = PIN_IN_RIGHT,
+            int in2Pin = PIN_IN_LEFT,
+            int pwmAPin = PIN_PWM_RIGHT,
+            int pwmBPin = PIN_PWM_LEFT,
+            int stbyPin = PIN_STBY) : md(in1Pin, in2Pin, pwmAPin, pwmBPin, stbyPin) {
+
+        // code that running once time
+        md.init();
+        md.on();
+    };
+
     /***
      * The car goes on
      * @param speed
@@ -63,6 +80,10 @@ namespace MOVES {
      * The car stops
      */
     void stop();
+
+private:
+    MotorDriver md;
 };
 
-#endif //SMART_CAR_ARDUINO_MOVES_H
+
+#endif //SMART_CAR_ARDUINO_MOTIONCONTROL_H
