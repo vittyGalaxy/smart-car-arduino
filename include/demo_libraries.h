@@ -74,5 +74,6 @@ void demo_led(){
     oLed.show(0,255,0);
     delay(2000);
     oLed.show(0,0,255);
+    delay(2000);
     oLed.off();
 }
