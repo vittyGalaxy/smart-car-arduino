@@ -13,6 +13,11 @@
 #ifndef DEMO_MOTORS_H
 #define DEMO_MOTORS_H
 
+/********************************************************************************/
+
+#include "MotorDriver.h"
+#include "UltrasonicSensor.h"
+#include "RGBLed.h"
 
 /*****************************************************************************/
 //extern MotorDriver md;
@@ -58,3 +63,37 @@ void demo_ultrasonicSensor() {
 }
 
 #endif // DEMO_MOTORS_H
+
+/*****************************************************************************/
+RGBLed oLed;
+
+void demo_led(){
+    oLed.on();
+    int r=255,g=0,b=0;
+    for(int i=0;i<255;i++)
+    {
+        oLed.show(r,g,b);
+        r-=1;
+        g+=1;
+        delay(10);
+    }
+
+    r=0,g=0,b=255;
+    for(int i=0;i<255;i++)
+    {
+        oLed.show(r,g,b);
+        r+=1;
+        b-=1;
+        delay(10);
+    }
+
+    r=0,g=255,b=0;
+    for(int i=0;i<255;i++)
+    {
+        oLed.show(r,g,b);
+        g-=1;
+        b+=1;
+        delay(10);
+    }
+    r=0,g=0,b=0;
+}
