@@ -69,31 +69,10 @@ RGBLed oLed;
 
 void demo_led(){
     oLed.on();
-    int r=255,g=0,b=0;
-    for(int i=0;i<255;i++)
-    {
-        oLed.show(r,g,b);
-        r-=1;
-        g+=1;
-        delay(10);
-    }
-
-    r=0,g=0,b=255;
-    for(int i=0;i<255;i++)
-    {
-        oLed.show(r,g,b);
-        r+=1;
-        b-=1;
-        delay(10);
-    }
-
-    r=0,g=255,b=0;
-    for(int i=0;i<255;i++)
-    {
-        oLed.show(r,g,b);
-        g-=1;
-        b+=1;
-        delay(10);
-    }
-    r=0,g=0,b=0;
+    oLed.show(255,0,0);
+    delay(2000);
+    oLed.show(0,255,0);
+    delay(2000);
+    oLed.show(0,0,255);
+    oLed.off();
 }
