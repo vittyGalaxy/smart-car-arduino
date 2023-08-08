@@ -34,6 +34,7 @@ public:
 
 private:
     static const int pin = 4;
+    bool bEnable = false;
 };
 /********************************************************************************/
 
