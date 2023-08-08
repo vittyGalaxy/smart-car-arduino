@@ -16,7 +16,7 @@
 
 /********************************************************************************/
 const int MAX_SPEED = 255;
-enum Motor {
+enum class Motor {
     LEFT = 0,
     RIGHT = 1
 };
@@ -33,8 +33,6 @@ enum Motor {
  * */
 class MotorDriver {
 public:
-    MotorDriver() = delete;
-
     inline MotorDriver(int in1Pin, int in2Pin, int pwmAPin, int pwmBPin, int stbyPin)
             : in1Pin(in1Pin),
               in2Pin(in2Pin),
