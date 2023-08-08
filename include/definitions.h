@@ -23,4 +23,7 @@ const int PIN_IN_RIGHT = 7;
 const int PIN_IN_LEFT = 8;
 const int PIN_STBY = 3;
 
+// Led
+const int PIN_LED = 4;
+
 #endif //DEFINITIONS_H
