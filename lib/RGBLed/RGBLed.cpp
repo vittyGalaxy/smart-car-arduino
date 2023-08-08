@@ -18,10 +18,8 @@ RGBLed &RGBLed::on() {
 
 /********************************************************************************/
 RGBLed &RGBLed::off() {
-    if (!bEnable) { return *this; }
+    FastLED.showColor(make_color(0, 0, 0));
     this->bEnable = false;
-    FastLED.clear(true);
-    FastLED.show();
     return *this;
 }
 
