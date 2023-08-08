@@ -18,19 +18,16 @@ RGBLed &RGBLed::on() {
 
 /********************************************************************************/
 RGBLed &RGBLed::off() {
-    if (!this->bEnable) { return *this; }
+    if (!bEnable) { return *this; }
     this->bEnable = false;
     FastLED.clear(true);
+    FastLED.show();
     return *this;
 }
 
 /********************************************************************************/
 RGBLed &RGBLed::show(uint8_t r, uint8_t g, uint8_t b) {
-    if (!this->bEnable) {
-        FastLED.clear(true);
-        FastLED.show();
-        return *this;
-    }
+    if (!bEnable) { return *this; }
     FastLED.showColor(make_color(r, g, b));
     return *this;
 }
