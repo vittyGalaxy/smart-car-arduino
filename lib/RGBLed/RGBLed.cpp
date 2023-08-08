@@ -17,7 +17,7 @@ RGBLed &RGBLed::on() {
 
 /********************************************************************************/
 RGBLed &RGBLed::off() {
-    FastLED.clear();
+    FastLED.clear(true);
     return *this;
 }
 
