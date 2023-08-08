@@ -28,6 +28,7 @@ RGBLed &RGBLed::off() {
 RGBLed &RGBLed::show(uint8_t r, uint8_t g, uint8_t b) {
     if (!this->bEnable) {
         FastLED.clear(true);
+        FastLED.show();
         return *this;
     }
     FastLED.showColor(make_color(r, g, b));
