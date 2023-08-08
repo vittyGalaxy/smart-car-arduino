@@ -19,7 +19,6 @@ class RGBLed {
 public:
     inline RGBLed() {
         CRGB leds[1];
-        const int x = pin;
         FastLED.addLeds<NEOPIXEL, pin>(leds, 1);
     }
 
