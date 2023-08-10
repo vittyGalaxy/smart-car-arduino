@@ -1,30 +1,33 @@
 /********************************************************************************/
 /**
 * @file: demo_motors.cpp
+* @details: This is a simple tutorial file
 * @description: Demo for us and motors
 *                   1. create an object
 *                   2. init this object
 *                   3. use object
-* @author: Vittorio
-* @mail:
+* @author: AngeloDamante
+* @mail: angelo.damante16@gmail.com
 */
 /********************************************************************************/
 
-#ifndef DEMO_MOTORS_H
-#define DEMO_MOTORS_H
+#ifndef DEMO_LIBRARIES_H
+#define DEMO_LIBRARIES_H
 
 /********************************************************************************/
-
+#include "definitions.h"
 #include "MotorDriver.h"
 #include "UltrasonicSensor.h"
 #include "RGBLed.h"
 
 /*****************************************************************************/
-//extern MotorDriver md;
-
 // 1. create an object
 MotorDriver oMd(PIN_IN_RIGHT, PIN_IN_LEFT, PIN_PWM_RIGHT, PIN_PWM_LEFT, PIN_STBY);
 
+/***
+ * Demo for motors
+ * This function is a simple tutorial for motors
+ */
 void demo_motors() {
 
     // 2. initialize
@@ -51,29 +54,35 @@ void demo_motors() {
 }
 
 /*****************************************************************************/
-//extern UltrasonicSensor us;
-
 // 1. create an object
 UltrasonicSensor oUs(PIN_TRIG, PIN_ECHO);
 
+/***
+ * Demo for ultrasonic sensor
+ * This function is a simple tutorial for ultrasonic sensor
+ */
 void demo_ultrasonicSensor() {
     oUs.init(); // 2.init
     int distanceCm = oUs.computeDistance(); // 3. use
     Serial.println(distanceCm);
 }
 
-#endif // DEMO_MOTORS_H
-
 /*****************************************************************************/
 RGBLed oLed;
 
-void demo_led(){
+/***
+ * Demo for RGB Led
+ * This function is a simple tutorial for RGB Led
+ */
+void demo_led() {
     oLed.on();
-    oLed.show(255,0,0);
+    oLed.show(255, 0, 0);
     delay(2000);
-    oLed.show(0,255,0);
+    oLed.show(0, 255, 0);
     delay(2000);
-    oLed.show(0,0,255);
+    oLed.show(0, 0, 255);
     delay(2000);
     oLed.off();
 }
+
+#endif // DEMO_LIBRARIES_H
