@@ -61,7 +61,7 @@ public:
      * @param: oMotor
      * @param: speed
      */
-    MotorDriver &go(Motor oMotor, uint8_t speed);
+    MotorDriver &go(Motor oMotor, int speed);
 
     /**
      * Backward Direction for selected motor with desired speed
@@ -69,7 +69,7 @@ public:
      * @param: oMotor
      * @param: speed
      */
-    MotorDriver &back(Motor oMotor, uint8_t speed);
+    MotorDriver &back(Motor oMotor, int speed);
 
     /**
      * Stop desired motor

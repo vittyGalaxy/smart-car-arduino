@@ -35,31 +35,33 @@ MotorDriver &MotorDriver::off() {
 }
 
 /********************************************************************************/
-MotorDriver &MotorDriver::go(Motor oMotor, uint8_t speed) {
+MotorDriver &MotorDriver::go(Motor oMotor, int speed) {
     if (!this->bOn) { return *this; }
+    int _speed = speed > MAX_SPEED ? MAX_SPEED : speed;
     switch (oMotor) {
         case Motor::RIGHT:
             digitalWrite(static_cast<uint8_t>(in1Pin), HIGH);
-            analogWrite(static_cast<uint8_t>(pwmAPin), speed);
+            analogWrite(static_cast<uint8_t>(pwmAPin), _speed);
             break;
         case Motor::LEFT:
             digitalWrite(static_cast<uint8_t>(in2Pin), HIGH);
-            analogWrite(static_cast<uint8_t>(pwmBPin), speed);
+            analogWrite(static_cast<uint8_t>(pwmBPin), _speed);
     }
     return *this;
 }
 
 /********************************************************************************/
-MotorDriver &MotorDriver::back(Motor oMotor, uint8_t speed) {
+MotorDriver &MotorDriver::back(Motor oMotor, int speed) {
     if (!this->bOn) { return *this; }
+    int _speed = speed > MAX_SPEED ? MAX_SPEED : speed;
     switch (oMotor) {
         case Motor::RIGHT:
             digitalWrite(static_cast<uint8_t>(in1Pin), LOW);
-            analogWrite(static_cast<uint8_t>(pwmAPin), speed);
+            analogWrite(static_cast<uint8_t>(pwmAPin), _speed);
             break;
         case Motor::LEFT:
             digitalWrite(static_cast<uint8_t>(in2Pin), LOW);
-            analogWrite(static_cast<uint8_t>(pwmBPin), speed);
+            analogWrite(static_cast<uint8_t>(pwmBPin), _speed);
     }
     return *this;
 }
