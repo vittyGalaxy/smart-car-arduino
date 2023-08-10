@@ -41,6 +41,8 @@ void MotionControl::leftForward(int speed) {
 
 void MotionControl::leftBackward(int speed) {
     //TODO
+    md.back(Motor::RIGHT, speed);
+    md.stop(Motor::LEFT);
 }
 
 void MotionControl::rightForward(int speed) {
