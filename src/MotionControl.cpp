@@ -29,6 +29,8 @@ void MotionControl::left(int speed) {
 
 void MotionControl::right(int speed) {
     //TODO
+    md.go(Motor::LEFT, speed);
+    md.back(Motor::RIGHT, speed);
 }
 
 void MotionControl::leftForward(int speed) {
