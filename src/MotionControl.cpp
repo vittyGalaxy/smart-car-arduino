@@ -8,8 +8,6 @@
 /********************************************************************************/
 
 #include "MotionControl.h"
-#include "RGBLed.h"
-RGBLed led;
 
 void MotionControl::forward(int speed) {
     md.go(Motor::RIGHT, speed);

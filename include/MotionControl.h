@@ -12,6 +12,7 @@
 
 #include "MotorDriver.h"
 #include "definitions.h"
+#include "RGBLed.h"
 
 /********************************************************************************/
 class MotionControl {
@@ -26,6 +27,7 @@ public:
         // code that running once time
         md.init();
         md.on();
+        led.on();
     };
 
     /***
@@ -82,7 +84,9 @@ public:
     void stop();
 
 private:
+    // attributes, objects that you use in this module
     MotorDriver md;
+    RGBLed led;
 };
 
 
