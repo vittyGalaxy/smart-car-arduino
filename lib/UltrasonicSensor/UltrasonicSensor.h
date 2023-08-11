@@ -12,9 +12,6 @@
 
 #include "Arduino.h"
 
-#endif //ULTRASONICSENSOR_H
-
-
 /********************************************************************************/
 /**
  * UltrasonicSensor class for HC=SR04 sensor
@@ -25,7 +22,7 @@
  */
 class UltrasonicSensor {
 public:
-    UltrasonicSensor() = delete;
+//    UltrasonicSensor() = delete;
 
     inline UltrasonicSensor(int trigPin, int echoPin, double maxDistance = 100.0)
             : trigPin(trigPin), echoPin(echoPin), maxDistance(maxDistance) {
@@ -74,3 +71,5 @@ private:
     double maxDistance;  //cm
     bool bInit = false;
 };
+
+#endif //ULTRASONICSENSOR_H
