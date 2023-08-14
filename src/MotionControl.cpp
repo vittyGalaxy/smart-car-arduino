@@ -30,7 +30,7 @@ void MotionControl::left(int speed) {
 void MotionControl::right(int speed) {
     md.go(Motor::LEFT, speed);
     md.back(Motor::RIGHT, speed);
-    led.show(11, 252, 252);
+    led.show(152, 27, 247);
 }
 
 void MotionControl::leftForward(int speed) {
@@ -42,7 +42,7 @@ void MotionControl::leftForward(int speed) {
 void MotionControl::leftBackward(int speed) {
     md.back(Motor::RIGHT, speed);
     md.stop(Motor::LEFT);
-    led.show(0, 0, 255);
+    led.show(11, 252, 252);
 }
 
 void MotionControl::rightForward(int speed) {
@@ -60,5 +60,5 @@ void MotionControl::rightBackward(int speed) {
 void MotionControl::stop() {
     md.stop(Motor::RIGHT);
     md.stop(Motor::LEFT);
-    led.show(152, 27, 247);
+    led.show(0, 0, 255);
 }
