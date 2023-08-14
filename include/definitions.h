@@ -12,7 +12,6 @@
 //IR
 const int PIN_IR = 9;
 
-
 // Servo
 const int PIN_SERVO = 10;
 
