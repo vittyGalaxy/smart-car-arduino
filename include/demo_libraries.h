@@ -19,6 +19,7 @@
 #include "MotorDriver.h"
 #include "UltrasonicSensor.h"
 #include "RGBLed.h"
+#include "IRremote.h"
 
 /*****************************************************************************/
 // 1. create an object
@@ -83,6 +84,18 @@ void demo_led() {
     oLed.show(0, 0, 255);
     delay(2000);
     oLed.off();
+}
+
+/*****************************************************************************/
+/***
+ * Demo for IR
+ * This function is a simple tutorial for IRremote
+ */
+void demo_IR() {
+    if (IrReceiver.decode()) {
+        Serial.println(IrReceiver.decodedIRData.decodedRawData, HEX);
+        IrReceiver.resume();
+    }
 }
 
 #endif // DEMO_LIBRARIES_H
