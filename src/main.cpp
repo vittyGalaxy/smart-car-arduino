@@ -1,7 +1,6 @@
 #include <Arduino.h>
 #include <IRremote.h>
 #include "definitions.h"
-#include "Mission.h"
 //#include "demo_libraries.h"
 
 const uint32_t buttonOK = 0xBF40FF00;
@@ -17,10 +16,32 @@ void setup() {
 }
 
 __attribute__((unused)) void loop() {
-    switch (buttonOK){
-        case buttonUp:
-            md.forward(150);
+    if (IrReceiver.decode()) {
+        switch (IrReceiver.decodedIRData.decodedRawData) {
+            case buttonOK:
+                /* TODO */
+                break;
 
+            case buttonUp:
+                /* TODO */
+                break;
 
+            case buttonDown:
+                /* TODO */
+                break;
+
+            case buttonRight:
+                /* TODO */
+                break;
+
+            case buttonLeft:
+                /* TODO */
+                break;
+
+            default:
+                break;
+        }
+        IrReceiver.resume(); // Receive the next value
     }
+
 }
