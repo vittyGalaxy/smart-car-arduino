@@ -2,6 +2,10 @@
 #include <IRremote.h>
 #include "definitions.h"
 #include "MotionControl.h"
+#include "Battery.h"
+
+//int Volt = 0;
+
 //#include "demo_libraries.h"
 
 MotionControl aserial;
@@ -17,6 +21,7 @@ void setup() {
     Serial.begin(9600);
     Serial.println("Hello");
     IrReceiver.begin(PIN_IR); // Start the receiver
+    voltageInit(PIN_BT);
 }
 
 __attribute__((unused)) void loop() {
@@ -27,6 +32,7 @@ __attribute__((unused)) void loop() {
             case buttonOK:
                 /* TODO */
                 aserial.stop();
+                Voltage_Measure(PIN_BT);
 //                delay(100);
                 break;
 
@@ -59,9 +65,10 @@ __attribute__((unused)) void loop() {
         }
 //        delay(100);
     }else{
-        if(millis() - preMillis > 300){
+        if(millis() - preMillis > 200){
             aserial.stop();
             preMillis = millis();
         }
     }
+//    Serial.println(Voltage_Measure())
 }
