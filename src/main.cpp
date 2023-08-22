@@ -30,32 +30,27 @@ __attribute__((unused)) void loop() {
         IrReceiver.resume(); // Receive the next value
         switch (IrReceiver.decodedIRData.decodedRawData) {
             case buttonOK:
-                /* TODO */
                 aserial.stop();
                 Voltage_Measure(PIN_BT);
 //                delay(100);
                 break;
 
             case buttonUp:
-                /* TODO */
                 aserial.forward(150);
 //                delay(100);
                 break;
 
             case buttonDown:
-                /* TODO */
                 aserial.backward(150);
 //                delay(100);
                 break;
 
             case buttonRight:
-                /* TODO */
                 aserial.right(65);
 //                delay(100);
                 break;
 
             case buttonLeft:
-                /* TODO */
                 aserial.left(65);
 //                delay(100);
                 break;
