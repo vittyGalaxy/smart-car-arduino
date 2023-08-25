@@ -9,6 +9,9 @@
 #ifndef DEFINITIONS_H
 #define DEFINITIONS_H
 
+//Battery
+const int PIN_BT = A3;
+
 //IR
 const int PIN_IR = 9;
 
