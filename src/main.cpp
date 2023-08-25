@@ -30,6 +30,10 @@ void setup() {
     distanceCm = us.computeDistance();
 }
 
+/*
+ * Dobbiamo fare un test per capire esattamente il tempo di campionamento dei tasti
+ * da parte del sensore ad infrarossi (diodo), così facendo potremo capire cosa succede
+ */
 __attribute__((unused)) void loop() {
     distanceCm = us.computeDistance();
     Serial.println(distanceCm);
@@ -43,10 +47,15 @@ __attribute__((unused)) void loop() {
                 break;
 
             case buttonUp:
+                // FIXME
                 if(distanceCm < 30){
+                    Serial.println("ostacolo trovato");
                     aserial.forward(25);
+                    delay(100);
                 }else{
+                    Serial.println("ostacolo non trovato");
                     aserial.forward(150);
+                    delay(100);
                 }
                 break;
 
@@ -71,5 +80,4 @@ __attribute__((unused)) void loop() {
             preMillis = millis();
         }
     }
-//    Serial.println(Voltage_Measure())
 }
