@@ -76,6 +76,7 @@ __attribute__((unused)) void loop() {
         }
     }else{
         if(millis() - preMillis > 200){
+            // FIXME
             aserial.stop();
             preMillis = millis();
         }
