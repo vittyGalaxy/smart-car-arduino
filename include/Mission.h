@@ -11,11 +11,11 @@
 #define SMART_CAR_ARDUINO_MISSION_H
 /********************************************************************************/
 
-#include "UltrasonicSensor.h"
+//#include "UltrasonicSensor.h"
 #include "MotionControl.h"
 
-MotionControl md(PIN_IN_RIGHT, PIN_IN_LEFT, PIN_PWM_RIGHT, PIN_PWM_LEFT, PIN_STBY);
-UltrasonicSensor us(PIN_TRIG, PIN_ECHO);
+//MotionControl md(PIN_IN_RIGHT, PIN_IN_LEFT, PIN_PWM_RIGHT, PIN_PWM_LEFT, PIN_STBY);
+//UltrasonicSensor us(PIN_TRIG, PIN_ECHO);
 
 /*****************************************************************************/
 
