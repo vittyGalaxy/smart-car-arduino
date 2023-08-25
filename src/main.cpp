@@ -3,6 +3,10 @@
 #include "definitions.h"
 #include "MotionControl.h"
 #include "Battery.h"
+#include "UltrasonicSensor.h"
+
+UltrasonicSensor us(PIN_TRIG, PIN_ECHO);
+int distanceCm;
 
 //int Volt = 0;
 
@@ -22,9 +26,13 @@ void setup() {
     Serial.println("Hello");
     IrReceiver.begin(PIN_IR); // Start the receiver
     voltageInit(PIN_BT);
+    us.init();
+    distanceCm = us.computeDistance();
 }
 
 __attribute__((unused)) void loop() {
+    distanceCm = us.computeDistance();
+    Serial.println(distanceCm);
     if (IrReceiver.decode()) {
         preMillis = millis();
         IrReceiver.resume(); // Receive the next value
@@ -32,33 +40,31 @@ __attribute__((unused)) void loop() {
             case buttonOK:
                 aserial.stop();
                 Voltage_Measure(PIN_BT);
-//                delay(100);
                 break;
 
             case buttonUp:
-                aserial.forward(150);
-//                delay(100);
+                if(distanceCm < 30){
+                    aserial.forward(25);
+                }else{
+                    aserial.forward(150);
+                }
                 break;
 
             case buttonDown:
                 aserial.backward(150);
-//                delay(100);
                 break;
 
             case buttonRight:
                 aserial.right(65);
-//                delay(100);
                 break;
 
             case buttonLeft:
                 aserial.left(65);
-//                delay(100);
                 break;
 
             default:
                 break;
         }
-//        delay(100);
     }else{
         if(millis() - preMillis > 200){
             aserial.stop();
