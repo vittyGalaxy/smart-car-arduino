@@ -11,6 +11,7 @@
 #define SMART_CAR_ARDUINO_BATTERY_H
 
 #include "Arduino.h"
+#include "RGBLed.h"
 
 void voltageInit(int pin);
 void Voltage_Measure(int pin);
